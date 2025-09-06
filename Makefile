@@ -1,4 +1,4 @@
-NAME	:= fractol
+NAME	:= mandelbrot
 CFLAGS	:= -Wextra -Wall -Werror -Wunreachable-code -O3 -ffast-math
 MLX_DIR	:= ./MLX42
 MLX_LIB := $(MLX_DIR)/build/libmlx42.a
