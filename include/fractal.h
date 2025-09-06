@@ -27,21 +27,6 @@
 # define BOX_COLOR 0x77777700
 # define CURSOR_COLOR 0x33333300
 # define CURSOR_FADE 20
-# define MINIMUM_JULIA 0.1e-10
-# define REASONABLE_PRECISION 11
-# define INFO_INSTRUCTION "Allowed inputs:\n\n \
-	./fractol mandelbrot\n \
-	./fractol julia real imaginary (for example './fractol julia -0.8 0.156')"
-# define INFO_LARGE_JULIA "Only input values between -4 and 4 are meaningful"
-# define INFO_BAD_INPUT "I don't know what to do with that"
-# define INFO_BAD_NUMBER "I think there's something wrong with those numbers"
-# define INFO_BE_REASONABLE "Please be reasonable"
-
-enum e_fractal
-{
-	mandelbrot,
-	julia,
-};
 
 typedef struct s_complex
 {
@@ -53,7 +38,6 @@ typedef struct s_data
 {
 	t_complex		*px;
 	int				px_count;
-	t_complex		c;
 	t_complex		*orbits;
 	int				*escape_times;
 	mlx_image_t		*frame;
@@ -70,7 +54,6 @@ typedef struct s_data
 	int				new_px_count;
 	bool			paused;
 	int				resizing;
-	enum e_fractal	type;
 	int				mouse_last_position;
 	int				cursor_fading;
 }	t_data;

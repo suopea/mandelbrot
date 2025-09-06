@@ -13,7 +13,6 @@ SRCS	:= 	./src/alloc.c \
 			./src/index_to_coordinates.c \
 			./src/init.c \
 			./src/input_hooks.c \
-			./src/input_validation.c \
 			./src/main.c \
 			./src/map_complex_plane.c \
 			./src/resize.c \

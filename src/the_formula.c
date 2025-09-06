@@ -33,12 +33,7 @@ void	iterate_once(t_data *data)
 	while (i < data->px_count)
 	{
 		if (!data->escape_times[i])
-		{
-			if (data->type == mandelbrot)
-				iterate_pixel(&data->px[i], &data->orbits[i], data, i);
-			else if (data->type == julia)
-				iterate_pixel(&data->c, &data->orbits[i], data, i);
-		}
+			iterate_pixel(&data->px[i], &data->orbits[i], data, i);
 		i++;
 	}
 	data->iteration++;

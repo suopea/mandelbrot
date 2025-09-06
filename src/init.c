@@ -12,8 +12,6 @@
 
 #include "fractal.h"
 
-static void	locations_become_orbits(t_data *data);
-
 void	initialize_program(t_data *data)
 {
 	data->width = WIDTH;
@@ -53,27 +51,4 @@ void	reset(t_data *data)
 	data->iteration = 0;
 	update_locations(data);
 	new_location_from_center(data, 0, 0);
-	if (data->type == julia)
-		locations_become_orbits(data);
-}
-
-static void	locations_become_orbits(t_data *data)
-{
-	int	row;
-	int	column;
-
-	row = 0;
-	while (row < data->height)
-	{
-		column = 0;
-		while (column < data->width)
-		{
-			data->orbits[i(data->width - column, row, data)].r
-				= data->location.r + row * data->scale;
-			data->orbits[i(data->width - column, row, data)].i
-				= data->location.i + column * data->scale;
-			column++;
-		}
-		row++;
-	}
 }
