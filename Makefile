@@ -1,4 +1,4 @@
-NAME	:= fractol
+NAME	:= mandelbrot
 CFLAGS	:= -Wextra -Wall -Werror -Wunreachable-code -O3 -ffast-math
 MLX_DIR	:= ./MLX42
 MLX_LIB := $(MLX_DIR)/build/libmlx42.a
@@ -13,7 +13,6 @@ SRCS	:= 	./src/alloc.c \
 			./src/index_to_coordinates.c \
 			./src/init.c \
 			./src/input_hooks.c \
-			./src/input_validation.c \
 			./src/main.c \
 			./src/map_complex_plane.c \
 			./src/resize.c \

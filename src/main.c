@@ -13,34 +13,24 @@
 #include "fractal.h"
 
 static void	loop_hook(void *input);
-static int	initialize(t_data *data, char **argv);
+static int	initialize(t_data *data);
 
-int	main(int argc, char **argv)
+int	main(void)
 {
 	t_data	data;
 
-	validate_inputs(argc, argv);
-	if (!ft_strcmp(argv[1], "julia"))
-		data.type = julia;
-	else
-		data.type = mandelbrot;
-	initialize(&data, argv);
+	initialize(&data);
 	mlx_loop(data.mlx);
 	mlx_terminate(data.mlx);
 	free_everything(&data);
 	return (0);
 }
 
-static int	initialize(t_data *data, char **argv)
+static int	initialize(t_data *data)
 {
 	initialize_program(data);
 	if (!initialize_mlx(data))
 		free_and_exit(data);
-	if (data->type == julia)
-	{
-		data->c.i = ft_strtod(argv[2], NULL);
-		data->c.r = ft_strtod(argv[3], NULL);
-	}
 	mlx_mouse_hook(data->mlx, mouse_hook, data);
 	mlx_scroll_hook(data->mlx, scroll_hook, data);
 	mlx_resize_hook(data->mlx, resize_hook, data);

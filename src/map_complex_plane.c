@@ -19,13 +19,8 @@ void	reset_orbits(t_data *data)
 	i = 0;
 	while (i < data->px_count)
 	{
-		if (data->type == mandelbrot)
-		{
-			data->orbits[i].r = 0;
-			data->orbits[i].i = 0;
-		}
-		else
-			data->orbits[i] = data->px[i];
+		data->orbits[i].r = 0;
+		data->orbits[i].i = 0;
 		data->escape_times[i] = 0;
 		i++;
 	}
