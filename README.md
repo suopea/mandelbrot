@@ -1,6 +1,6 @@
 This is a browser for the [mandelbrot](https://en.wikipedia.org/wiki/Mandelbrot_set) [set](https://www.youtube.com/watch?v=FFftmWSzgmk). What makes this different from other browsers out there is the fact that instead of seeing a still image of the set, you get to see it grow! 
 
-# installation
+# Installation
 
 The project depends on [MLX42](https://github.com/codam-coding-college/MLX42). The MLX42 library is downloaded and compiled by the makefile of this project, but you need to install the dependencies for MLX42 first (instructions below). Then run `make` and `./mandelbrot`.
 
