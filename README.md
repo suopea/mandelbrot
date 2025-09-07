@@ -2,7 +2,7 @@ This is a browser for the [mandelbrot](https://en.wikipedia.org/wiki/Mandelbrot_
 
 # Installation
 
-The project depends on [MLX42](https://github.com/codam-coding-college/MLX42). The MLX42 library is downloaded and compiled by the makefile of this project, but you need to install the dependencies for MLX42 first (instructions below). Then run `make` and `./mandelbrot`.
+The project depends on [MLX42](https://github.com/codam-coding-college/MLX42). The MLX42 library is downloaded and compiled by the makefile of this project, so you don't need to worry about that, but you do need to install the dependencies for MLX42 first (instructions below). Then run `make` and `./mandelbrot`.
 
 ## MacOS
 
