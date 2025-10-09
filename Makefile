@@ -5,26 +5,13 @@ MLX_LIB := $(MLX_DIR)/build/libmlx42.a
 LIBFT	:= libft/libft.a
 HEADERS	:= -I ./include -I $(MLX_DIR)/include -I libft
 LIBS	:= $(MLX_LIB) -ldl -lglfw -pthread -lm $(LIBFT)
-SRCS	:= 	./src/alloc.c \
-			./src/coloring.c \
-			./src/cursors.c \
-			./src/ft_strcmp.c \
-			./src/ft_strtod.c \
-			./src/index_to_coordinates.c \
-			./src/init.c \
-			./src/input_hooks.c \
-			./src/main.c \
-			./src/map_complex_plane.c \
-			./src/resize.c \
-			./src/the_formula.c \
-			./src/zoom.c
-
-OBJS	:= ${SRCS:.c=.o}
+SRCS	:= $(wildcard src/*.c)
+OBJS	:= ${SRCS:src/%.c=obj/%.o}
 
 all: $(MLX_LIB) $(NAME)
 
 $(NAME): $(OBJS) $(MLX_LIB) $(LIBFT)
-	@$(CC) $(OBJS) $(LIBS) $(HEADERS) -o $(NAME)
+	$(CC) $(OBJS) $(LIBS) $(HEADERS) -o $(NAME)
 
 mlx: $(MLX_LIB)
 
@@ -41,16 +28,17 @@ $(MLX_LIB): $(MLX_DIR)
 $(MLX_DIR):
 	git clone https://github.com/codam-coding-college/MLX42.git
 
-%.o: %.c ./include/fractal.h
-	$(CC) $(CFLAGS) -o $@ -c $< $(HEADERS)
+obj/%.o: src/%.c ./include/fractal.h
+	mkdir -p obj
+	$(CC) $(CFLAGS) -c $< $(HEADERS) -o $@
 
 clean:
-	@rm -rf $(OBJS)
+	rm -rf $(OBJS)
 
 fclean: clean
-	@rm -rf $(NAME)
-	@rm -rf $(MLX_DIR)
-	@rm -f compile_commands.json
+	rm -rf $(NAME)
+	rm -rf $(MLX_DIR)
+	rm -f compile_commands.json
 
 re: fclean all
 
