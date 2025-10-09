@@ -12,21 +12,29 @@
 
 #ifndef FRACTAL_H
 # define FRACTAL_H
-# include <math.h>
 # include "MLX42/MLX42.h"
 # include "../libft/libft.h"
+
+# include <math.h>
+# include <fcntl.h>
+# include <stdlib.h>
+# include <sys/stat.h>
+
 # define WIDTH 1000
 # define HEIGHT 600
 # define DEFAULT_SCALE 0.005
 # define ZOOM_WAIT 15
 # define RESIZE_WAIT 10
 # define SCROLL_AMOUNT 1.1
-# define KEY_ESC MLX_KEY_ESCAPE
-# define KEY_REITERATE MLX_KEY_I
-# define KEY_RESET MLX_KEY_R
 # define BOX_COLOR 0x77777700
 # define CURSOR_COLOR 0x33333300
 # define CURSOR_FADE 20
+# define SAVE_PRECISION 20
+
+# define KEY_ESC MLX_KEY_ESCAPE
+# define KEY_REITERATE MLX_KEY_I
+# define KEY_RESET MLX_KEY_R
+# define KEY_SAVE MLX_KEY_S
 
 typedef struct s_complex
 {
@@ -112,5 +120,9 @@ int		y(int i, t_data *data);
 void	allocate_everything(t_data *data);
 void	free_everything(t_data *data);
 void	free_and_exit(t_data *data);
+
+/* save and restore scenes */
+
+int		save_scene(t_data *data);
 
 #endif

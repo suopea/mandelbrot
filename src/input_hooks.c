@@ -74,6 +74,8 @@ void	key_hook(mlx_key_data_t keydata, void *input)
 		reset_orbits(data);
 	if (keydata.key == KEY_RESET)
 		reset(data);
+	if (keydata.key == KEY_SAVE)
+		save_scene(data);
 	if (keydata.key == MLX_KEY_SPACE)
 		toggle_pause(data);
 }
